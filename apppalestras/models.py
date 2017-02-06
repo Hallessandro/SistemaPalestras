@@ -38,6 +38,7 @@ class Atividade(models.Model):
     participante = models.ManyToManyField(Participante)
     palestrante = models.ManyToManyField(Palestrante)
     evento = models.ForeignKey(Evento, on_delete=models.PROTECT)
+    quantidadeParticipantes = models.IntegerField(default=0)
 
     def __str__(self):
         return self.titulo
