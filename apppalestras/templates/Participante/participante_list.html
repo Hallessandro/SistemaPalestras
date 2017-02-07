@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block conteudo %}
+    <center><h3>Palestrantes</h3></center>
+    <hr>
+    <div class="col-md-9">
+    <p><a href="{% url 'participante_new' %}" class="btn btn-primary">
+        Novo Participante</a></p>
+    <form class="navbar-form navbar-left" role="search"method="get"action="{% url 'participante_list' %}">
+        <div class="form-group">
+            <label for="criterio">Descrição</label>
+            <input type="text" id="criterio"name="criterio" value="{{ criterio }}" class="form-control"placeholder="Descrição">
+        </div>
+        <button type="submit" class="btn btn-default">
+            <span class="glyphicon glyphicon-search" aria-hidden="true"/>
+        </button>
+    </form>
+    </div>
+    </br>
+    <div class="row">
+        <div class="col-md-9">
+            <div>
+                <div class="box-header with-border">
+                    <h3 class="box-title">Lista de Participantes</h3>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <tr>
+                            <th>Nome</th>
+                            <th>Data de Nascimento</th>
+                            <th colspan="3">Operações</th>
+                        </tr>
+                        {% for participante in participantes %}
+                           <tr>
+                               <td><a href="{% url 'participante_detail' participante.pk %}">
+
+                                {{ participante.nome | upper}}</a></td>
+                            <td>{{ participante.dataNascimento}}</td>
+
+                            <td><a href="{% url 'participante_update' participante.pk %}" class="glyphicon glyphicon-edit"></a></td>
+                            <td><a href="{% url 'participante_delete' participante.pk %}" class="glyphicon glyphicon-remove"></a></td>
+
+                           </tr>
+                        {% endfor %}
+
+                </table>
+              </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

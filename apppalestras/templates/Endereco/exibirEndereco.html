@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block conteudo %}
+
+    <h2>Dados do Endereços</h2>
+    <ul>
+        <li>Lagradouro: {{ endereco.logradouro}}</li>
+        <li>Número: {{ endereco.numero }}</li>
+        <li>Bairro: {{ endereco.bairro}}</li>
+        <li>Cidade: {{ endereco.cidade}}</li>
+        <li>Estado: {{ endereco.estado}}</li>
+
+
+    </ul>
+{% endblock %}

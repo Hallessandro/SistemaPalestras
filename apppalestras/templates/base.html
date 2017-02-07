@@ -1,0 +1,178 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Sistema  </title>
+      <link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet"/>
+      <link href="{% static "css/font-awesome.min.css" %}" rel="stylesheet"/>
+      <link href="{% static "css/sb-admin-2.css" %}" rel="stylesheet"/>
+
+      <script src="{%  static "js/jquery.min.js" %}"></script>
+      <script src="{%  static "js/bootstrap.min.js" %}"></script>
+      <script src="{%  static "js/metisMenu.min.js" %}"></script>
+
+      <script src="{%  static "js/raphael.min.js" %}"></script>
+      <script src="{%  static "js/sb-admin-2.js" %}"></script>
+      <script src="{%  static "js/morris.min.js" %}"></script>
+      <script src="{%  static "js/morris-data.js" %}"></script>
+
+
+    <style>
+            .far{font-size:20px;}
+            .branco {background-color: white}
+    </style>
+
+  </head>
+
+  <body>
+      <div id="wrapper">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">SB Admin v.0</a>
+            </div>
+            <!-- /.navbar-header -->
+
+            <ul class="nav navbar-top-links navbar-right">
+
+                <!-- /.dropdown -->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="#"><i class="fa fa-user fa-fw"></i>Perfil</a>
+                        <li class="divider"></li>
+                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i>Sair</a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-user -->
+                </li>
+                <!-- /.dropdown -->
+            </ul>
+            <!-- /.navbar-top-links -->
+
+            <div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse">
+                    <ul class="nav" id="side-menu">
+                        <li class="sidebar-search">
+                            <div class="input-group custom-search-form">
+                                <input type="text" class="form-control" placeholder="Search...">
+                                <span class="input-group-btn">
+                                <button class="btn btn-default" type="button">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </span>
+                            </div>
+                            <!-- /input-group -->
+                        </li>
+                        <li>
+                            <a href="{% url 'home' %}"><i class="fa fa-home fa-fw"></i> Pagina Inicial</a>
+                        </li>
+                        <li>
+                            <a><i class="fa fa-user fa-fw"></i> Palestrantes<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="{% url 'palestrante_new' %}">Cadastrar Palestrante</a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'palestrante_list' %}">Listas Palestrantes</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                         <li>
+                            <a><i class="fa fa-users fa-fw"></i> Participantes<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="{% url 'participante_new' %}">Cadastrar Participante</a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'participante_list' %}">Lista participantes</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+
+
+                        <li>
+                            <a href="#"><i class="fa fa-tachometer fa-fw"></i>Eventos<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="{% url 'evento_new' %}">Cadastrar Evento</a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'evento_list' %}">Lista Eventos</a>
+                                </li>
+                                <li>
+                                    <a href="#">Atividades <span class="fa arrow"></span></a>
+                                    <ul class="nav nav-third-level">
+                                        <li>
+                                            <a href="{% url 'atividade_new' %}">Cadrastrar Atividade</a>
+                                        </li>
+                                        <li>
+                                            <a href="{% url 'atividade_list' %}">Lista Eventos</a>
+                                        </li>
+
+                                    </ul>
+                                    <!-- /.nav-third-level -->
+                                </li>
+                                <li>
+                                    <a href="#">Endereços <span class="fa arrow"></span></a>
+                                    <ul class="nav nav-third-level">
+                                        <li>
+                                            <a href="{% url 'endereco_new' %}">Cadrastrar Endereço</a>
+                                        </li>
+                                        <li>
+                                            <a href="{% url 'endereco_list' %}">Lista Endereços</a>
+                                        </li>
+
+                                    </ul>
+                                    <!-- /.nav-third-level -->
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+
+                    </ul>
+                </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+            <!-- /.navbar-static-side -->
+        </nav>
+
+        <div id="page-wrapper">
+            <div class="row">
+                <div class="branco content-wrapper">
+                <!-- Content Header (Page header) -->
+                <section class="content-header">
+
+                    {% block conteudo %}
+                        <h3>Bem vindo ao Sistema de Palestras</h3>
+                        <h3>{{ datetime.date.today }}</h3>
+
+
+                    {% endblock %}
+
+                </section>
+            </div>
+
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+  </body>
+</html>

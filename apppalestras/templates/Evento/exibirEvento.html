@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block conteudo %}
+
+    <h2>Dados do Eventos</h2>
+    <ul>
+        <li>Titulo: {{ evento.nome}}</li>
+        <li>Data de Inicio: {{ evento.dataInicio }}</li>
+        <li>Data de Terminio: {{ evento.dataTermino}}</li>
+        <li>Endereço: {{ evento.endereco}}</li>
+
+
+    </ul>
+{% endblock %}

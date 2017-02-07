@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block conteudo %}
+
+    <h2>Dados da Atividade</h2>
+    <ul>
+        <li>Titulo: {{ atividade.titulo}}</li>
+        <li>Duração: {{ atividade.duracao }}</li>
+        <li>Tipo: {{ atividade.tipo}}</li>
+        {% for participante in atividade.participante.all %}
+            <li>Participante: {{ participante}}</li>
+        {% endfor %}
+        <li>Palestrantes:
+        {% for palestrante in atividade.palestrante.all %}
+             {{ palestrante}}</li>
+        {% endfor %}
+        <li>Evento: {{ atividade.evento}}</li>
+        <li>Quantidade de Participantes: {{ atividade.quantidadeParticipantes}}</li>
+
+
+    </ul>
+{% endblock %}
