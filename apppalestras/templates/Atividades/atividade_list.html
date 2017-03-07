@@ -38,7 +38,8 @@
 
                             <td><a href="{% url 'atividade_update' atividade.pk %}" class="glyphicon glyphicon-edit"></a></td>
                             <td><a href="{% url 'atividade_delete' atividade.pk %}" class="glyphicon glyphicon-remove"></a></td>
-
+                            <td><a href="{% url 'atividade_participante' %}">Cadastrar Participante</a></td>
+                            <td><a href="{% url 'participantes_atividade_list' atividade.pk %}">Listar Inscritos</a></td>
                            </tr>
                         {% endfor %}
 

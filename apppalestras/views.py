@@ -8,7 +8,7 @@ from django.contrib.auth.models import Group
 from django.contrib.auth.decorators import login_required,permission_required
 from django.contrib.auth.forms import SetPasswordForm
 
-from apppalestras.forms import PalestranteForm, ParticipanteForm, AtividadeForm, EventoForm, EnderecoForm
+from apppalestras.forms import *
 from apppalestras.models import *
 
 
@@ -268,3 +268,18 @@ def endereco_delete(request,pk):
 def endereco_detail(request, pk):
     endereco=Endereco.objects.get(id=pk)
     return render(request, 'Endereco/exibirEndereco.html', {'endereco':endereco})
+
+def atividade_participante(request):
+    if (request.method=="POST"):
+        form=Atividade_ParticipanteForm(request.POST)
+        if(form.is_valid()):
+            form.save()
+            return redirect('atividade_list')
+    else:
+        form=Atividade_ParticipanteForm()
+    dados={'form':form}
+    return render(request,'Atividades/Atividade_Participante_form.html',dados)
+
+def participantes_atividade_list(request, pk):
+    participantes = Participante_atividade.objects.get(atividade_id=pk)
+    return render(request, 'Atividades/participantes_list.html', {'participantes':participantes})

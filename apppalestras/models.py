@@ -8,8 +8,6 @@ class Pessoa(models.Model):
 
     def __str__(self):
         return self.nome
-class Participante(Pessoa):
-    pass
 
 class Palestrante(Pessoa):
     minicurriculo = models.TextField("Minicurriculo")
@@ -32,15 +30,24 @@ class Evento(models.Model):
     def __str__(self):
         return self.titulo
 
+
 class Atividade(models.Model):
     titulo = models.CharField("Titulo da Atividade", max_length=150)
     duracao = models.CharField("Tempo de duração", max_length=50)
     tipo = models.CharField("Tipo da atividade", max_length=50)
-    participante = models.ManyToManyField(Participante)
     palestrante = models.ManyToManyField(Palestrante)
     evento = models.ForeignKey(Evento, on_delete=models.PROTECT)
     quantidadeParticipantes = models.IntegerField(default=0)
 
     def __str__(self):
         return self.titulo
+
+class Participante(Pessoa):
+    pass
+
+class Participante_atividade(models.Model):
+    atividade = models.ForeignKey(Atividade)
+    participante = models.ForeignKey(Participante)
+
+
 

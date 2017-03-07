@@ -19,10 +19,15 @@ class AtividadeForm(ModelForm):
     #senha = forms.CharField(label='Senha', widget=forms.PasswordInput)
     class Meta:
         model = Atividade
-        fields = ('titulo', 'duracao', 'tipo', 'participante','palestrante','evento','quantidadeParticipantes')
+        fields = ('titulo', 'duracao', 'tipo', 'palestrante','evento','quantidadeParticipantes')
 
 class EnderecoForm(ModelForm):
     #senha = forms.CharField(label='Senha', widget=forms.PasswordInput)
     class Meta:
         model = Endereco
         fields = ('logradouro', 'numero', 'bairro', 'cidade','estado')
+
+class Atividade_ParticipanteForm(ModelForm):
+    class Meta:
+        model = Participante_atividade
+        fields = ('participante','atividade')

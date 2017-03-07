@@ -52,4 +52,6 @@ urlpatterns = [
     url(r'^endereco/delete/(?P<pk>\d+)$',
         endereco_delete, name='endereco_delete'),
 
+    url(r'^atividade/participante/new/$', atividade_participante, name='atividade_participante'),
+    url(r'^participante/atividade/list/(?P<pk>\d+)$', participantes_atividade_list, name='participantes_atividade_list'),
 ]
