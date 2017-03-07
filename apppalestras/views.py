@@ -281,5 +281,10 @@ def atividade_participante(request):
     return render(request,'Atividades/Atividade_Participante_form.html',dados)
 
 def participantes_atividade_list(request, pk):
-    participantes = Participante_atividade.objects.get(atividade_id=pk)
-    return render(request, 'Atividades/participantes_list.html', {'participantes':participantes})
+    resultado = Participante_atividade.objects.filter(atividade_id=pk)
+    p = []
+    for participantes in resultado:
+         p.append(participantes.participante.nome)
+    dados={'participantes':p}
+    return render(request, 'Atividades/participantes_list.html', dados)
+
